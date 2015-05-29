@@ -38,8 +38,19 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'urlManager' => [
+            'class'=>'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '<controller>/<action>' => '<controller>/<action>',                
+                'login.html'            => 'user/login',
+                'logout.html'           => 'user/logout',
+            ],
+        ],
     ],
     'params' => $params,
+    
 ];
 
 if (YII_ENV_DEV) {
@@ -50,5 +61,6 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = 'yii\gii\Module';
 }
+
 
 return $config;
