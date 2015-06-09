@@ -5,6 +5,9 @@ namespace app\controllers;
 use Yii;
 use app\models\User;
 use app\models\LoginForm;
+
+use app\models\Registration;
+
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -132,6 +135,37 @@ class UserController extends Controller
 
         return $this->goHome();
     }
+    
+    
+    public function actionRegistration()
+    {
+      
+        $model = new User();      
+      
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            if($model->password){              
+                $password = Yii::$app->security->generatePasswordHash($model->password);
+                $auth_key = Yii::$app->security->generateRandomString();
+                $token = Yii::$app->security->generateRandomString() . '_' . time();
+
+                $model->password = $password;
+                $model->auth_key = $auth_key;
+                $model->token = $token;
+                
+                $model->en = 1;
+                $model->save();
+            }
+            
+            
+            return $this->redirect(['/login.html']);
+        } else {
+            return $this->render('registration', [
+                'model' => $model,
+            ]);
+        }
+    }
+    
     
     /**
      * Finds the User model based on its primary key value.

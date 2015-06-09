@@ -8,7 +8,16 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     public $authKey;
     public $accessToken;
+    
+    public $verifyCode;
 
+    public function rules()
+    {
+        return [
+            [['login','password','email'], 'required'],
+        ];
+    }
+    
     public static function findIdentity($id)
     {
         return static::findOne(['id' => $id]);

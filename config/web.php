@@ -46,6 +46,10 @@ $config = [
                 '<controller>/<action>' => '<controller>/<action>',                
                 'login.html'            => 'user/login',
                 'logout.html'           => 'user/logout',
+                
+                'registration.html'     => 'user/registration',
+                
+                ''            => 'user/login',
             ],
         ],
     ],
