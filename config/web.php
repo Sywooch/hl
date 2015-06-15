@@ -43,13 +43,21 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                
+                'campaing-all' => 'yandex-context/campaings',
+                'campaing-ads/<id_ad:\d+>' => 'yandex-context/ads',
+                'campaing-keywords/<id_ad:\d+>' => 'yandex-context/keywords',
+                
+                
                 '<controller>/<action>' => '<controller>/<action>',                
                 'login.html'            => 'user/login',
                 'logout.html'           => 'user/logout',
                 
                 'registration.html'     => 'user/registration',
                 
-                ''            => 'user/login',
+                ''                      => 'yandex-context/campaings',
+                
+                
             ],
         ],
     ],
