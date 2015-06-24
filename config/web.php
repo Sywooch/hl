@@ -47,6 +47,7 @@ $config = [
                 'campaing-all' => 'yandex-context/campaings',
                 'campaing-ads/<id_ad:\d+>' => 'yandex-context/ads',
                 'campaing-keywords/<id_ad:\d+>' => 'yandex-context/keywords',
+                'campaing-keywords/<action>/<id_ad:\d+>/<id_keywords:\d+>' => 'yandex-context/<action>',
                 
                 
                 '<controller>/<action>' => '<controller>/<action>',                
