@@ -24,7 +24,7 @@ class YandexContextController extends Controller{
     
     public function actionCampaings()
     {
-        echo 'campaing'; 
+        echo 'campaing1';
     }
 
     public function actionAds()
